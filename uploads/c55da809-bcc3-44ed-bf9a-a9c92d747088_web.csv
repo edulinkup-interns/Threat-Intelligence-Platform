@@ -1,0 +1,6 @@
+Plugin ID,CVE,Severity,Plugin Name,Host,Port
+101001,CVE-2024-1111,Critical,Apache Remote Code Execution,192.168.10.5,80
+101002,CVE-2023-2456,High,Outdated Apache Version,192.168.10.5,80
+101003,CVE-2022-5567,Medium,Directory Listing Enabled,192.168.10.6,80
+101004,CVE-2021-3344,Low,Server Banner Disclosure,192.168.10.6,80
+101005,CVE-2023-9987,High,WordPress Plugin Vulnerability,192.168.10.7,443

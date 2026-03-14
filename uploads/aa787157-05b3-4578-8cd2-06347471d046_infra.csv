@@ -1,0 +1,7 @@
+Plugin ID,CVE,Severity,Plugin Name,Host,Port
+202001,CVE-2024-8001,Critical,MySQL Authentication Bypass,192.168.20.10,3306
+202002,CVE-2023-7002,High,Weak SSH Ciphers Enabled,192.168.20.11,22
+202003,CVE-2023-7003,High,SSH Weak Key Exchange Algorithm,192.168.20.11,22
+202004,CVE-2022-7004,Medium,SSL Certificate Expired,192.168.20.12,443
+202005,CVE-2021-7005,Low,NTP Version Disclosure,192.168.20.13,123
+202006,CVE-2024-8006,Critical,PostgreSQL Privilege Escalation,192.168.20.14,5432

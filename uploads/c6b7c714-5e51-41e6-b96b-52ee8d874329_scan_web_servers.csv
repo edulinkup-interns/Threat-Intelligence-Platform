@@ -1,0 +1,5 @@
+Plugin ID,CVE,Severity,Plugin Name,Host,Port
+100001,CVE-2024-1111,Critical,Apache Remote Code Execution,192.168.1.20,80
+100002,CVE-2023-4567,High,Outdated Apache Version,192.168.1.20,80
+100003,CVE-2022-7890,Medium,Directory Listing Enabled,192.168.1.21,80
+100004,CVE-2021-5678,Low,HTTP Server Information Disclosure,192.168.1.21,80
