@@ -1,6 +1,0 @@
-Host,Port,Name,Risk,CVSS v3.0 Base Score,CVE,Description,Solution
-192.168.1.10,80,Apache Outdated Version,High,8.2,CVE-2023-1234,Apache server is outdated and vulnerable to multiple attacks,Update Apache to latest version
-192.168.1.10,22,OpenSSH Weak Configuration,Medium,5.6,CVE-2022-5678,SSH configuration allows weak ciphers,Update SSH configuration and disable weak ciphers
-192.168.1.11,443,SSL Certificate Expired,Low,3.2,CVE-2021-9999,The SSL certificate has expired,Renew the SSL certificate
-192.168.1.12,3306,MySQL Authentication Bypass,Critical,9.8,CVE-2024-0001,MySQL server vulnerable to authentication bypass,Update MySQL to patched version
-192.168.1.12,8080,Tomcat Remote Code Execution,Critical,9.5,CVE-2024-0002,Apache Tomcat vulnerable to remote code execution,Update Tomcat to latest version
