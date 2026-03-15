@@ -1,21 +1,24 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "sqlite:///./security.db"
+# Locally uses SQLite.
+# On Railway, DATABASE_URL is set automatically when you attach a Postgres DB.
+# psycopg2 expects postgresql:// but Railway sometimes gives postgres:// — fix that.
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./security.db")
 
-engine = create_engine(
-    DATABASE_URL,
-    connect_args={"check_same_thread": False}
-)
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-SessionLocal = sessionmaker(
-    autocommit=False,
-    autoflush=False,
-    bind=engine
-)
+# SQLite needs check_same_thread=False; PostgreSQL doesn't need it and errors if passed
+connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
+
+engine = create_engine(DATABASE_URL, connect_args=connect_args)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
-from sqlalchemy.orm import Session
+
 
 def get_db():
     db = SessionLocal()
