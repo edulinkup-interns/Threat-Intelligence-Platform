@@ -1,5 +1,4 @@
-// Locally this reads from .env.local (VITE_API_URL=http://127.0.0.1:8000)
-// On Vercel set VITE_API_URL to your Railway backend URL in project settings
+
 const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 async function apiFetch(path, options = {}) {
@@ -11,7 +10,7 @@ async function apiFetch(path, options = {}) {
   return res.json();
 }
 
-// ── Core endpoints ────────────────────────────────────────────────────────
+//  Core endpoints
 
 export async function getAssets() {
   return apiFetch("/assets");
@@ -35,7 +34,7 @@ export async function uploadScan(file) {
   return apiFetch("/scan/upload", { method: "POST", body: formData });
 }
 
-// ── Risk & CVE endpoints ──────────────────────────────────────────────────
+// ── Risk & CVE endpoints 
 
 export async function getRiskSummary() {
   return apiFetch("/risk/summary");
@@ -60,7 +59,7 @@ export async function forceRecalculate() {
   return apiFetch("/risk/recalculate", { method: "POST" });
 }
 
-// ── Report ────────────────────────────────────────────────────────────────
+// Report 
 
 export async function downloadReport() {
   const res = await fetch(`${API}/report/pdf`);
