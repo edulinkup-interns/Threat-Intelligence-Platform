@@ -60,7 +60,7 @@ def _severity_color(sev):
     return m.get((sev or "").lower(), (C_GRAY, C_LIGHT_GRAY))
 
 
-# ── Custom styles ─────────────────────────────────────────────────────────
+#Custom style
 def _styles():
     return {
         "cover_title": ParagraphStyle(
@@ -114,22 +114,20 @@ def _styles():
     }
 
 
-# ── Page template callbacks ───────────────────────────────────────────────
+# Page template callbac
 def _header_footer(canvas, doc):
     canvas.saveState()
     w, h = A4
 
     if doc.page == 1:
-        # Cover — full dark background
+
         canvas.setFillColor(C_DARK)
         canvas.rect(0, 0, w, h, fill=1, stroke=0)
-        # Purple accent bar
+        
         canvas.setFillColor(C_PURPLE)
         canvas.rect(0, h - 8*mm, w, 8*mm, fill=1, stroke=0)
         canvas.restoreState()
         return
-
-    # Inner pages — top bar
     canvas.setFillColor(C_DARK)
     canvas.rect(0, h - 12*mm, w, 12*mm, fill=1, stroke=0)
 
@@ -151,8 +149,6 @@ def _header_footer(canvas, doc):
 
     canvas.restoreState()
 
-
-# ── Severity bar chart (pure ReportLab drawing) ───────────────────────────
 def _severity_chart(counts: dict) -> Drawing:
     """Horizontal bar chart for Critical/High/Medium/Low counts."""
     bar_h    = 18
@@ -190,7 +186,6 @@ def _severity_chart(counts: dict) -> Drawing:
     return d
 
 
-# ── Main report builder ───────────────────────────────────────────────────
 def generate_report(data: dict) -> bytes:
     """
     data keys expected:
@@ -217,7 +212,7 @@ def generate_report(data: dict) -> bytes:
     story      = []
 
     # ── PAGE 1: COVER ─────────────────────────────────────────────────────
-    # Push content down (dark bg drawn by callback)
+   
     story.append(Spacer(1, 52*mm))
     story.append(Paragraph("Security Vulnerability", S["cover_title"]))
     story.append(Paragraph("Assessment Report", S["cover_title"]))
