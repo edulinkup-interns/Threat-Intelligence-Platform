@@ -8,7 +8,7 @@ import {
 } from "../api/api";
 import toast from "react-hot-toast";
 
-// ── Severity badge ────────────────────────────────────────────────────────
+//Severity badge 
 function Badge({ severity }) {
   if (!severity) return <span className="badge badge-none">Unknown</span>;
   return (
@@ -16,7 +16,7 @@ function Badge({ severity }) {
   );
 }
 
-// ── Risk bar (visual score bar) ───────────────────────────────────────────
+// Risk bar (visual score bar) 
 function RiskBar({ score, max }) {
   const pct = max > 0 ? Math.min((score / max) * 100, 100) : 0;
   const color =
@@ -41,7 +41,7 @@ function RiskBar({ score, max }) {
   );
 }
 
-// ── CVE detail drawer ─────────────────────────────────────────────────────
+//CVE detail drawer
 function AssetDrawer({ asset, onClose, onCriticalityChange }) {
   const [detail, setDetail]         = useState(null);
   const [loading, setLoading]       = useState(true);
