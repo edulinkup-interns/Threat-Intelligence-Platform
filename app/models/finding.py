@@ -13,7 +13,6 @@ class Finding(Base):
     port             = Column(String)
     service          = Column(String)
 
-    # Per-finding risk: cvss_score * severity_weight (set by risk_engine)
     risk_score       = Column(Float, default=0.0)
 
     asset            = relationship("Asset",          back_populates="findings")
